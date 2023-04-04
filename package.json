@@ -1,0 +1,45 @@
+{
+  "name": "cue",
+  "version": "0.0.1",
+  "description": "A super tiny React Toast library",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.tsx",
+    "dev": "tsup src/index.tsx --watch",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "react",
+    "toast",
+    "notification",
+    "toast component",
+    "react toast",
+    "library",
+    "cue",
+    "react toast component",
+    "open source"
+  ],
+  "author": "abhinav <contact.abhinavanshul@gmail.com>",
+  "repository": {
+    "type": "git"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^18.15.11",
+    "@types/react": "^18.0.32",
+    "@types/react-dom": "^18.0.11",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tsup": "^6.7.0",
+    "typescript": "^5.0.3"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
