@@ -1,5 +1,5 @@
 {
-  "name": "cue",
+  "name": "react-kyu",
   "version": "0.0.1",
   "description": "A super tiny React Toast library",
   "main": "dist/index.js",
