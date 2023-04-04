@@ -1,6 +1,6 @@
 {
   "name": "react-kyu",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A super tiny React Toast library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -27,7 +27,7 @@
   "author": "abhinav <contact.abhinavanshul@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abhinav-anshul/cue.git"
+    "url": "git+https://github.com/abhinav-anshul/react-kyu.git"
   },
   "license": "ISC",
   "dependencies": {
