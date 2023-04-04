@@ -26,7 +26,8 @@
   ],
   "author": "abhinav <contact.abhinavanshul@gmail.com>",
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "git+https://github.com/abhinav-anshul/cue.git"
   },
   "license": "ISC",
   "dependencies": {
