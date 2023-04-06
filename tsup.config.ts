@@ -3,7 +3,7 @@ import { defineConfig } from "tsup"
 export default defineConfig({
   minify: true,
   target: "es2015",
-  // external: ["react"],
+  external: ["react"],
   sourcemap: true,
   dts: true,
   format: ["esm", "cjs", "iife"],
