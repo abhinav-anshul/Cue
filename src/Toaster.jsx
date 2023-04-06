@@ -116,4 +116,4 @@ const Toaster = (props) => {
   )
 }
 
-export default Toaster
+export { Toaster }

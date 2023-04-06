@@ -4,14 +4,12 @@
   "description": "A super tiny React Toast library",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsup src/index.jsx",
-    "dev": "tsup src/index.jsx --watch",
-    "format": "prettier --write ."
+    "dev": "tsup src/index.jsx --watch"
   },
   "keywords": [
     "react",
@@ -20,9 +18,10 @@
     "toast component",
     "react toast",
     "library",
-    "cue",
     "react toast component",
-    "open source"
+    "open source",
+    "kyu",
+    "react-kyu"
   ],
   "author": "abhinav <contact.abhinavanshul@gmail.com>",
   "repository": {

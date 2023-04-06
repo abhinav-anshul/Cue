@@ -5,13 +5,9 @@ export default defineConfig({
   target: "es2015",
   external: ["react"],
   sourcemap: true,
-  dts: true,
-  format: ["esm", "cjs", "iife"],
+  format: ["esm", "cjs"],
   injectStyle: true,
   esbuildOptions(options) {
-    options.define = {
-      "process.env.NODE_ENV": JSON.stringify("production"),
-    }
     options.banner = {
       js: '"use client"',
     }
