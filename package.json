@@ -1,16 +1,16 @@
 {
   "name": "react-kyu",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A super tiny React Toast library",
-  "main": "dist/index",
+  "main": "dist/index.js",
   "module": "dist/index.mjs",
-  "typings": "src/index",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "tsup src/index.jsx",
-    "dev": "tsup src/index.jsx --watch"
+    "build": "tsup src/index.tsx",
+    "dev": "tsup src/index.tsx --watch"
   },
   "keywords": [
     "react",

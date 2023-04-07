@@ -2,12 +2,12 @@
 
 import React from "react"
 import { useEffect, useState, useRef, useMemo, useCallback, isValidElement } from "react"
-import { Loader, getAsset } from "./assets.tsx"
+import { Loader, getAsset } from "./assets"
 const TOAST_LIFETIME = 4000
 const TIME_BEFORE_UNMOUNT = 200
 const GAP = 14
 
-const Toast = (props) => {
+const Toast = (props: any) => {
   const {
     invert: ToasterInvert,
     index,
@@ -28,17 +28,17 @@ const Toast = (props) => {
     descriptionClassName = "",
   } = props
 
-  const [mounted, setMounted] = useState(false)
-  const [offsetBeforeRemove, setOffsetBeforeRemove] = useState(0)
-  const [removed, setRemoved] = useState(false)
-  const [swiping, setSwiping] = useState(false)
-  const [swipeOut, setSwipeOut] = useState(false)
-  const [initialHeight, setInitialHeight] = useState(0)
-  const [promiseStatus, setPromiseStatus] = useState(null)
-  const [promiseResult, setPromiseResult] = useState(null)
-  const toastRef = useRef(null)
-  const offset = useRef(0)
-  const closeTimerStartTimeRef = useRef(0)
+  const [mounted, setMounted] = useState<any>(false)
+  const [offsetBeforeRemove, setOffsetBeforeRemove] = useState<any>(0)
+  const [removed, setRemoved] = useState<any>(false)
+  const [swiping, setSwiping] = useState<any>(false)
+  const [swipeOut, setSwipeOut] = useState<any>(false)
+  const [initialHeight, setInitialHeight] = useState<any>(0)
+  const [promiseStatus, setPromiseStatus] = useState<any>(null)
+  const [promiseResult, setPromiseResult] = useState<any>(null)
+  const toastRef = useRef<any>(null)
+  const offset = useRef<any>(0)
+  const closeTimerStartTimeRef = useRef<any>(0)
   const toastType = toast.type
   const isVisible = index + 1 <= visibleToasts
   const isFront = index === 0
@@ -51,7 +51,7 @@ const Toast = (props) => {
   const toastDescriptionClassname = toast.descriptionClassName || ""
 
   const heightIndex = useMemo(
-    () => heights.findIndex((height) => height.toastId === toast.id) || 0,
+    () => heights.findIndex((height: any) => height.toastId === toast.id) || 0,
     [heights, toast.id]
   )
 
@@ -71,22 +71,22 @@ const Toast = (props) => {
     if (toastNode) {
       const height = toastNode.getBoundingClientRect().height
       setInitialHeight(height)
-      setHeights((h) => [{ toastId: toast.id, height }, ...h])
-      return () => setHeights((h) => h.filter((height) => height.toastId !== toast.id))
+      setHeights((h: any) => [{ toastId: toast.id, height }, ...h])
+      return () => setHeights((h: any) => h.filter((height: any) => height.toastId !== toast.id))
     }
   }, [setHeights, toast.id])
 
   const deleteToast = useCallback(() => {
     setRemoved(true)
     setOffsetBeforeRemove(offset.current)
-    setHeights((h) => h.filter((height) => height.toastId !== toast.id))
+    setHeights((h: any) => h.filter((height: any) => height.toastId !== toast.id))
     setTimeout(() => {
       removeToast(toast)
     }, TIME_BEFORE_UNMOUNT)
   }, [toast, removeToast, setHeights, offset])
 
   useEffect(() => {
-    let timeoutId
+    let timeoutId: NodeJS.Timeout
     const startTimer = () => {
       closeTimerStartTimeRef.current = new Date().getTime()
       timeoutId = setTimeout(() => {
@@ -118,7 +118,7 @@ const Toast = (props) => {
   ])
 
   const toastsHeightBefore = useMemo(() => {
-    return heights.reduce((prev, curr, reducerIndex) => {
+    return heights.reduce((prev: any, curr: any, reducerIndex: any) => {
       if (reducerIndex >= heightIndex) {
         return prev
       }
@@ -132,17 +132,18 @@ const Toast = (props) => {
   )
 
   useEffect(() => {
+    // @ts-ignore
     if (isPromise(toast)) {
       setPromiseStatus("loading")
-      const promiseHandler = (promise) => {
+      const promiseHandler = (promise: any) => {
         promise
-          .then((data) => {
+          .then((data: any) => {
             if (toast.success && typeof toast.success === "function") {
               setPromiseResult(toast.success(data))
             }
             setPromiseStatus("success")
           })
-          .catch((error) => {
+          .catch((error: any) => {
             setPromiseStatus("error")
             if (toast.error && typeof toast.error === "function") {
               setPromiseResult(toast.error(error))
@@ -165,6 +166,7 @@ const Toast = (props) => {
   }, [toast.delete])
 
   const promiseTitle = useMemo(() => {
+    // @ts-ignore
     if (!isPromise(toast)) return null
 
     switch (promiseStatus) {

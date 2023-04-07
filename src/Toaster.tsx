@@ -1,6 +1,6 @@
 "use-client"
 import React from "react"
-import { ToastState } from "./state.ts"
+import { ToastState } from "./state"
 import { useEffect, useState, useRef, useCallback } from "react"
 import Toast from "./Toast.jsx"
 import "./style.css"
@@ -14,7 +14,7 @@ const TOAST_WIDTH = 356
 // Viewport padding
 const VIEWPORT_OFFSET = "32px"
 
-const Toaster = (props) => {
+const Toaster = (props: any) => {
   const {
     position = "bottom-right",
     offset,
@@ -28,21 +28,24 @@ const Toaster = (props) => {
     closeButton,
   } = props
 
-  const [toasts, setToasts] = useState([])
-  const [heights, setHeights] = useState([])
-  const [expanded, setExpanded] = useState(false)
-  const [interacting, setInteracting] = useState(false)
-  const listRef = useRef()
+  const [toasts, setToasts] = useState<any>([])
+  const [heights, setHeights] = useState<any>([])
+  const [expanded, setExpanded] = useState<any>(false)
+  const [interacting, setInteracting] = useState<any>(false)
+  const listRef = useRef<any>()
   const [y, x] = position.split("-")
 
   useEffect(() => {
     return ToastState.subscribe((toast) => {
+      // @ts-ignore
       if (toast.dismiss) {
-        setToasts((toasts) => toasts.map((t) => (t.id === toast.id ? { ...t, delete: true } : t)))
+        setToasts((toasts: any) =>
+          toasts.map((t: any) => (t.id === toast.id ? { ...t, delete: true } : t))
+        )
         return
       }
       ReactDOM.flushSync(() => {
-        setToasts((toasts) => [toast, ...toasts])
+        setToasts((toasts: any) => [toast, ...toasts])
       })
     })
   }, [])
@@ -54,7 +57,7 @@ const Toaster = (props) => {
   }, [toasts])
 
   const removeToast = useCallback(
-    (toast) => setToasts((toasts) => toasts.filter(({ id }) => id !== toast?.id)),
+    (toast: any) => setToasts((toasts: any) => toasts.filter(({ id }: any) => id !== toast?.id)),
     []
   )
 
@@ -88,7 +91,7 @@ const Toaster = (props) => {
           }}
           onPointerUp={() => setInteracting(false)}
         >
-          {toasts?.map((toast, index) => (
+          {toasts?.map((toast: any, index: any) => (
             <Toast
               key={toast.id}
               index={index}
