@@ -1,9 +1,10 @@
 {
   "name": "react-kyu",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A super tiny React Toast library",
-  "main": "dist/index.js",
+  "main": "dist/index",
   "module": "dist/index.mjs",
+  "typings": "dist/index",
   "files": [
     "dist"
   ],
