@@ -4,7 +4,7 @@
   "description": "A super tiny React Toast library",
   "main": "dist/index",
   "module": "dist/index.mjs",
-  "typings": "dist/index",
+  "typings": "src/index",
   "files": [
     "dist"
   ],
